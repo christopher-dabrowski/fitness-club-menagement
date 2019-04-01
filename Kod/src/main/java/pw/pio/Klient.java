@@ -7,6 +7,13 @@ public class Klient extends Osoba {
     private int numerKarnetu;
     //TODO: Referencja na pakiet
 
+
+    public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, int numerKarnetu) {
+        super(imie, nazwisko);
+        this.dataRozpoczeciaPakietu = dataRozpoczeciaPakietu;
+        this.numerKarnetu = numerKarnetu;
+    }
+
     public Date getDataRozpoczeciaPakietu() {
         return dataRozpoczeciaPakietu;
     }

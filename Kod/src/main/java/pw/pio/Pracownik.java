@@ -1,8 +1,16 @@
 package pw.pio;
 
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class Pracownik extends Osoba {
     private int id;
 
+    public Pracownik(String imie, String nazwisko, int id) {
+        super(imie, nazwisko);
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -11,10 +19,5 @@ public class Pracownik extends Osoba {
     public void setId(int id) {
         this.id = id;
     }
-
-    public double policzWynagrodzenie()
-    {
-        //TODO: Napisac policzWynagrodzenie
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
+    
 }
