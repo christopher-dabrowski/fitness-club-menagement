@@ -7,10 +7,11 @@ public class Klient extends Osoba {
     private int numerKarnetu;
     private PakietUslug pakietUslug;
 
-    public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, int numerKarnetu) {
+    public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, int numerKarnetu, PakietUslug pakietUslug) {
         super(imie, nazwisko);
         this.dataRozpoczeciaPakietu = dataRozpoczeciaPakietu;
         this.numerKarnetu = numerKarnetu;
+        this.pakietUslug = pakietUslug;
     }
 
     public Date getDataRozpoczeciaPakietu() {
