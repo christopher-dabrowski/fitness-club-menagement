@@ -5,8 +5,7 @@ import java.util.Date;
 public class Klient extends Osoba {
     private Date dataRozpoczeciaPakietu;
     private int numerKarnetu;
-    //TODO: Referencja na pakiet
-
+    private PakietUslug pakietUslug;
 
     public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, int numerKarnetu) {
         super(imie, nazwisko);
@@ -28,5 +27,13 @@ public class Klient extends Osoba {
 
     public void setNumerKarnetu(int numerKarnetu) {
         this.numerKarnetu = numerKarnetu;
+    }
+
+    public PakietUslug getPakietUslug() {
+        return pakietUslug;
+    }
+
+    public void setPakietUslug(PakietUslug pakietUslug) {
+        this.pakietUslug = pakietUslug;
     }
 }
