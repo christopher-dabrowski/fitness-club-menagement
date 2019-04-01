@@ -1,7 +1,11 @@
 package pw.pio;
 
+import sun.plugin.dom.exception.InvalidStateException;
+
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class BazaKlientow {
     private static BazaKlientow instance;
@@ -15,6 +19,18 @@ public class BazaKlientow {
             instance = new BazaKlientow();
 
         return instance;
+    }
+
+    public int wygenerujUnikalnyNumerKlienta() {
+        Optional<Integer> max = klienci.stream().map(k -> k.getNumerKarnetu()).max(Integer::compareTo);
+
+        if (!max.isPresent())
+            return 0;
+
+        if (max.get() == Integer.MAX_VALUE)
+            throw new InvalidStateException("Maksymalny indeks dla klienta zostal osiagniety");
+
+        return max.get()+1;
     }
 
     public void dodajKlienta(Klient klient) {

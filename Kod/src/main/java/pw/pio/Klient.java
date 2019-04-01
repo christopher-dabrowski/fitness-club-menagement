@@ -7,10 +7,10 @@ public class Klient extends Osoba {
     private int numerKarnetu;
     private PakietUslug pakietUslug;
 
-    public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, int numerKarnetu, PakietUslug pakietUslug) {
+    public Klient(String imie, String nazwisko, Date dataRozpoczeciaPakietu, PakietUslug pakietUslug) {
         super(imie, nazwisko);
         this.dataRozpoczeciaPakietu = dataRozpoczeciaPakietu;
-        this.numerKarnetu = numerKarnetu;
+        this.numerKarnetu = BazaKlientow.getInstance().wygenerujUnikalnyNumerKlienta();
         this.pakietUslug = pakietUslug;
     }
 
