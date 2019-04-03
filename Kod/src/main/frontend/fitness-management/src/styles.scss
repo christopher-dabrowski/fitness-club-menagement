@@ -1,0 +1,30 @@
+@import "variables";
+@import "theme";
+
+* {
+	box-sizing: border-box;
+}
+
+mat-input-container {
+	box-sizing: content-box !important;
+}
+
+mat-form-field {
+	box-sizing: content-box !important;
+}
+
+html, body {
+	min-height: 100vh;
+	min-width: 100vw;
+	color: $white;
+}
+
+body {
+	margin: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
