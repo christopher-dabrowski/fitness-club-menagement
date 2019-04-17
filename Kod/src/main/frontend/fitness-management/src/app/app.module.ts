@@ -1,9 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {FmMaterialModule} from "./fm-material.module";
 import {RouterModule, Routes} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
 	{path: '', loadChildren: './home/home.module#HomeModule'},
@@ -15,12 +16,16 @@ const routes: Routes = [
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
 	],
+
 	imports: [
 		BrowserModule,
 		FmMaterialModule,
-		RouterModule.forRoot(routes)
+		RouterModule.forRoot(routes),
+		BrowserAnimationsModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

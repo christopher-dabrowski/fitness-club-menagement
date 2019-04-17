@@ -1,3 +1,49 @@
-<p>
-	users works!
-</p>
+<div class="info">
+	<tile id="table-tile">
+		<tile-content>
+			<div class="table">
+				<div class="table-header">
+					<div>Name</div>
+					<div>Surname</div>
+					<div>Membership #</div>
+					<div>Member Since</div>
+					<div>Service Package</div>
+					<div class="icon">
+						<button mat-icon-button [matMenuTriggerFor]="appMenu">
+							<mat-icon>more_vert</mat-icon>
+						</button>
+					</div>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="row" *ngFor="let user of USERS; let last = last; let i = index">
+					<div class="table-row">
+						<div>{{user.firstName}}</div>
+						<div>{{user.surname}}</div>
+						<div>{{user.cardNumber}}</div>
+						<div>{{user.startDate | date : 'shortDate'}}</div>
+						<div>{{user.servicePackage.name}}</div>
+						<div class="icon">
+							<button mat-icon-button *ngIf="currentMode == Mode.EDIT" (click)="editClient(i)">
+								<mat-icon>edit</mat-icon>
+							</button>
+							<button mat-icon-button *ngIf="currentMode == Mode.DELETE" (click)="deleteClient(i)">
+								<mat-icon>close</mat-icon>
+							</button>
+						</div>
+					</div>
+					<mat-divider *ngIf="last==false"></mat-divider>
+				</div>
+
+			</div>
+		</tile-content>
+	</tile>
+	<div class="done-button-row" *ngIf="currentMode == Mode.DELETE || currentMode == Mode.EDIT">
+		<button class="done-button mat-elevation-z4" mat-button (click)="editsDone()">Done</button>
+	</div>
+</div>
+
+<mat-menu #appMenu="matMenu">
+	<button mat-menu-item (click)="addClient()">Add</button>
+	<button mat-menu-item (click)="editModeOn()">Edit</button>
+	<button mat-menu-item (click)="deleteModeOn()">Delete</button>
+</mat-menu>

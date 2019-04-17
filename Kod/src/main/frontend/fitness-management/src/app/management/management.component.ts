@@ -5,6 +5,7 @@ import {Component, OnInit} from '@angular/core';
 	templateUrl: './management.component.html',
 	styleUrls: ['./management.component.scss']
 })
+
 export class ManagementComponent implements OnInit {
 
 	constructor() {
@@ -12,5 +13,5 @@ export class ManagementComponent implements OnInit {
 
 	ngOnInit() {
 	}
-
 }
+

@@ -1,0 +1,19 @@
+<div class="tile__header">
+	<div class="tile__header__content">
+		<ng-content></ng-content>
+		<button
+				*ngIf="optionsButton"
+				mat-icon-button
+				class="options-button"
+				(click)="optionsButtonClick()"
+        [matMenuTriggerFor]="menu">
+			<mat-icon>more_vert</mat-icon>
+		</button>
+	</div>
+	<mat-divider></mat-divider>
+</div>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="add()">Time to add!</button>
+  <button mat-menu-item (click)="remove()">Time to remove!</button>
+  <button mat-menu-item (click)="edit()">Time to edit!</button>
+</mat-menu>

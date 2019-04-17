@@ -1,0 +1,82 @@
+@import "../../variables";
+
+.info {
+	width: 100%;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+}
+
+.table {
+	display: flex;
+	flex-direction: column;
+}
+
+.table-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: justify;
+	text-justify: inter-word;
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 24px 16px;
+		width: 20%;
+		font-weight: 800;
+		color: $medium-gray-font;
+		&:last-child {
+			width: 5%;
+		}
+		&:first-child {
+			width: 15%;
+		}
+	}
+}
+
+.table-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: justify;
+	text-justify: inter-word;
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 24px 16px;
+		width: 20%;
+		color: $white;
+		&:last-child {
+			width: 5%;
+		}
+		&:first-child {
+			width: 15%;
+		}
+	}
+}
+
+.icon {
+	padding: 0;
+	height: 18px;
+
+}
+
+.done-button {
+	background-color: $medium-dark-gray;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	transition: $transition;
+}
+
+.done-button-row {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 32px;
+	margin-top: -16px;
+}

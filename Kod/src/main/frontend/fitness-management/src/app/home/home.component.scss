@@ -5,6 +5,7 @@
 	flex-direction: row;
 
 	a {
+		background-color: $dark-gray;
 		width: 200px;
 		height: 200px;
 		display: flex;
@@ -20,7 +21,7 @@
 		}
 
 		&:hover {
-			background: $dark-gray-hover;
+			background-color: $dark-gray-hover;
 		}
 
 		mat-icon {

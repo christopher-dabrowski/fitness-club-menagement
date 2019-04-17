@@ -1,0 +1,43 @@
+@import "../../../variables";
+
+.add-user-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	mat-form-field{
+		width: 300px;
+		padding-bottom: 8px;
+	}
+}
+
+.dialog {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	margin-top: -8;
+	margin-bottom: -8;
+}
+.mat-dialog-title{
+	margin: 0;
+	padding-bottom: 16px;
+}
+
+button{
+	background-color: $medium-dark-gray;
+	transition: $transition;
+	width: 80px;
+}
+
+.button-row{
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.checkbox-line{
+	padding-bottom: 28px;
+}

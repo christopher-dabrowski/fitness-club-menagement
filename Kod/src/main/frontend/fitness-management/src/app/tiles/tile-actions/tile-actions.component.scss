@@ -1,0 +1,14 @@
+@import "../../../variables";
+
+.tile__actions {
+
+	display: flex;
+	flex-direction: column;
+
+	.tile__actions__content {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		padding: 16px;
+	}
+}
