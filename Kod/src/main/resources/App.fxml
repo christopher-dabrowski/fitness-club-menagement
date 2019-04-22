@@ -13,7 +13,7 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="251.0" layoutY="129.0" mnemonicParsing="false" text="Dodaj klienta" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" />
+      <Button layoutX="251.0" layoutY="129.0" mnemonicParsing="false" text="Dodaj klienta" onAction="#openClientAdditionWindow" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" />
       <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="173.0" mnemonicParsing="false" text="Wyświetl klientów" />
       <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="219.0" mnemonicParsing="false" text="Dodaj pracownika" />
       <Button disable="true" layoutX="220.0" layoutY="259.0" mnemonicParsing="false" text="Wyświetl pracowników" />
