@@ -4,8 +4,8 @@ public class PakietUslug {
     private boolean darmoweZajecia;
     private double kosztMiesieczny;
     private String nazwa;
-    
-    public PakietUsług(String nazwa, int czasTrwania, double kosztMiesieczny, boolean darmoweZajecia){
+
+    PakietUslug(String nazwa, int czasTrwania, double kosztMiesieczny, boolean darmoweZajecia){
         this.nazwa = nazwa;
         this.czasTrwania = czasTrwania;
         this.kosztMiesieczny = kosztMiesieczny;
