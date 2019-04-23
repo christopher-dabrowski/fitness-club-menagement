@@ -116,6 +116,6 @@ public class CreateClientController {
                                 )
                 );
 
-        System.out.println(newClient.toString());
+        BazaKlientow.getInstance().dodajKlienta(newClient);
     }
 }
