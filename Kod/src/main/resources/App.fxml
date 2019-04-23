@@ -14,7 +14,7 @@
          </font>
       </Label>
       <Button layoutX="251.0" layoutY="129.0" mnemonicParsing="false" onAction="#openClientAdditionWindow" text="Dodaj klienta" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" />
-      <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="173.0" mnemonicParsing="false" text="Wyświetl klientów" />
+      <Button alignment="CENTER" layoutX="235.0" layoutY="173.0" mnemonicParsing="false" onAction="#openClientListWindow" text="Wyświetl klientów" />
       <Button alignment="CENTER" layoutX="235.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEmployeeAdditionWindow" text="Dodaj pracownika" />
       <Button disable="true" layoutX="220.0" layoutY="259.0" mnemonicParsing="false" text="Wyświetl pracowników" />
    </children>
