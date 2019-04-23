@@ -65,7 +65,7 @@ public class BazaKlientow {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-            java.util.Date utilDate = new java.util.Date();
+         
         try (Connection conn = DriverManager.getConnection(url);
              PreparedStatement pstmt = conn.prepareStatement(insert)){
             pstmt.setInt(1, klient.getNumerKarnetu());
