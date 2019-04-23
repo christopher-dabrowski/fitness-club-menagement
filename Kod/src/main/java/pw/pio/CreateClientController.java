@@ -1,9 +1,11 @@
 package pw.pio;
 
+import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import lombok.val;
+import lombok.var;
 
 import java.time.LocalDate;
 
@@ -12,13 +14,19 @@ public class CreateClientController {
 //    private javafx.scene.control.Label nameField;
 
     @FXML
-    private TextField nameLabel;
+    private TextField nameTextField;
     @FXML
-    private TextField surnameLabel;
+    private TextField surnameTextField;
+    @FXML
+    private TextField passNameTextField;
     @FXML
     private DatePicker passStartDatePicker;
     @FXML
     private Spinner passDurationSpinner;
+    @FXML
+    private TextField monthlyCostTextField;
+    @FXML
+    private ChoiceBox freeActivitiesChoiceBox;
 
     @FXML
     public void initialize() {
@@ -28,6 +36,10 @@ public class CreateClientController {
 
         val valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 90, 30);
         passDurationSpinner.setValueFactory(valueFactory);
+
+        var options = FXCollections.observableArrayList("Nie", "Tak");
+        freeActivitiesChoiceBox.setItems(options);
+        freeActivitiesChoiceBox.setValue(freeActivitiesChoiceBox.getItems().get(0));
     }
 
 //    @FXML
