@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.pio.ListClientsControler">
    <children>
-      <ListView layoutX="10.0" layoutY="63.0" prefHeight="320.0" prefWidth="454.0" />
+      <ListView layoutX="10.0" layoutY="63.0" prefHeight="320.0" prefWidth="454.0" fx:id="clientsListView" />
       <Label layoutX="177.0" layoutY="6.0" text="Lista klientów">
          <font>
             <Font size="41.0" />
