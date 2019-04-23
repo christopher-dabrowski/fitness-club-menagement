@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.pio.MainMenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.pio.MainMenuController">
    <children>
       <Button fx:id="exitButton" layoutX="271.0" layoutY="323.0" mnemonicParsing="false" onAction="#exit" text="Wyjdź" />
       <Label layoutX="174.0" layoutY="41.0" text="Klub Fitnes">
@@ -13,9 +13,9 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="251.0" layoutY="129.0" mnemonicParsing="false" text="Dodaj klienta" onAction="#openClientAdditionWindow" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" />
+      <Button layoutX="251.0" layoutY="129.0" mnemonicParsing="false" onAction="#openClientAdditionWindow" text="Dodaj klienta" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="251.0" />
       <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="173.0" mnemonicParsing="false" text="Wyświetl klientów" />
-      <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="219.0" mnemonicParsing="false" text="Dodaj pracownika" />
+      <Button alignment="CENTER" disable="true" layoutX="235.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEmployeeAdditionWindow" text="Dodaj pracownika" />
       <Button disable="true" layoutX="220.0" layoutY="259.0" mnemonicParsing="false" text="Wyświetl pracowników" />
    </children>
 </AnchorPane>

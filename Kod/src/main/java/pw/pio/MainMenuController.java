@@ -40,4 +40,23 @@ public class MainMenuController {
         }
 
     }
+
+    public void openEmployeeAdditionWindow(Event event)
+    {
+        try {
+            val root = (Parent) FXMLLoader.load(getClass().getResource("/NewEmployee.fxml"));
+
+            val stage = new Stage();
+            stage.setTitle("Nowy pracownik");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e)
+        {
+            System.exit(1);
+        }
+
+    }
+
 }
