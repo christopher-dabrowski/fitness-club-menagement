@@ -3,10 +3,16 @@ package pw.pio;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import lombok.val;
 import lombok.var;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -86,6 +92,23 @@ public class CreateClientController {
     }
 
     @FXML
+    public void returnToMainMenu(Event event) {
+        try {
+            val root = (Parent) FXMLLoader.load(getClass().getResource("/App.fxml"));
+
+            val stage = new Stage();
+            stage.setTitle("Główne menu");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e)
+        {
+            System.exit(1);
+        }
+    }
+
+    @FXML
     public void submitButtonPressed(Event event) {
         var errors = new ArrayList<String>(4);
         if (!isInputValid(errors)) {
@@ -117,5 +140,11 @@ public class CreateClientController {
                 );
 
         BazaKlientow.getInstance().dodajKlienta(newClient);
+
+        val alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Klient dodany");
+        alert.setHeaderText("Dodanie klienta przebiegło poprawnie");
+
+        alert.showAndWait();
     }
 }

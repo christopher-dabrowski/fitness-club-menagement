@@ -44,7 +44,7 @@ public class App extends Application
 
         val scene = new Scene(root);
 
-        primaryStage.setTitle("Test JavaFX");
+        primaryStage.setTitle("Główne menu");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

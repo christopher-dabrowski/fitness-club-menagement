@@ -68,6 +68,14 @@
    <TextField fx:id="monthlyCostTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
    <Label text="Darmowe zajęcia" GridPane.rowIndex="7" />
    <ChoiceBox fx:id="freeActivitiesChoiceBox" prefHeight="27.0" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+   <Button mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="49.0" prefWidth="70.0" text="Powrót" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <GridPane.margin>
+         <Insets left="130.0" />
+      </GridPane.margin>
+   </Button>
    <rowConstraints>
       <RowConstraints />
       <RowConstraints />
