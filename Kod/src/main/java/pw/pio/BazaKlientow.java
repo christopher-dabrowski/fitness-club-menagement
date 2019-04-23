@@ -56,7 +56,7 @@ public class BazaKlientow {
         String insert= "INSERT INTO bazaKlientow(numerKarnetu,pakietUslug) VALUES(?,?)";
 
         try (Connection conn = DriverManager.getConnection(url);
-             PreparedStatement pstmt = conn.prepareStatement(sql);
+             PreparedStatement pstmt = conn.prepareStatement(insert);
              Statement stmt = conn.createStatement()) {
             // tworzy nowa tabele jezeli nie ma jej w bazie
             stmt.execute(sql);
