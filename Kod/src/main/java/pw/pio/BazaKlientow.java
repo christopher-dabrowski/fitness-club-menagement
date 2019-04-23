@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class BazaKlientow {
     private static BazaKlientow instance;
@@ -41,6 +45,18 @@ public class BazaKlientow {
 
     public void usun(Klient klient) {
         klienci.remove(klient);
+    }
+    
+    private void polaczZBazaSQL(){
+        String url = "jdbc:sqlite:C://sqlite/db/FitnessClub.db";
+        Connection conn = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(url);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+    }
     }
 
 }
