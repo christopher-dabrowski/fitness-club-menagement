@@ -47,41 +47,41 @@ public class BazaKlientow {
     }
      private void dodajDoBazySQL(Klient klient)
     {
-        String url = "jdbc:sqlite:C://sqlite/db/FitnessClub.db";
+        String url = "jdbc:sqlite:C://sqlite/db/Test1.db";
         String sql = "CREATE TABLE IF NOT EXISTS bazaKlientow (\n"
                 + "	numerKarnetu integer PRIMARY KEY,\n"
                 + "	dataRozpoczeciaPakietu date NULL,\n"
-                + "	pakietUslug text NOT NULL\n"
+                + "	pakietUslug text NOT NULL,\n"
+                + "	imie text NOT NULL,\n"
+                + "	nazwisko text NOT NULL\n"
                 + ");";
-        String insert= "INSERT INTO bazaKlientow(numerKarnetu,pakietUslug) VALUES(?,?)";
+        String insert= "INSERT INTO bazaKlientow(numerKarnetu,dataRozpoczeciaPakietu, pakietUslug,imie, nazwisko) VALUES(?,?,?,?,?)";
 
         try (Connection conn = DriverManager.getConnection(url);
-             PreparedStatement pstmt = conn.prepareStatement(insert);
              Statement stmt = conn.createStatement()) {
             // tworzy nowa tabele jezeli nie ma jej w bazie
             stmt.execute(sql);
 
-                pstmt.setInt(1, klient.getNumerKarnetu());
-                pstmt.setString(2, klient.getPakietUslug().getNazwa());
-                pstmt.executeUpdate();
-
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+            java.util.Date utilDate = new java.util.Date();
+        try (Connection conn = DriverManager.getConnection(url);
+             PreparedStatement pstmt = conn.prepareStatement(insert)){
+            pstmt.setInt(1, klient.getNumerKarnetu());
+            pstmt.setDate(2,new java.sql.Date(klient.getDataRozpoczeciaPakietu().getTime()));
+            pstmt.setString(3, klient.getPakietUslug().getNazwa());
+            pstmt.setString(4,klient.getImie() );
+            pstmt.setString(5, klient.getNazwisko());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
 
 
     }
-    private void polaczZBazaSQL(){
-        String url = "jdbc:sqlite:C://sqlite/db/FitnessClub.db";
-        Connection conn = null;
-        try {
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-    }
-    }
+    
 
 }
