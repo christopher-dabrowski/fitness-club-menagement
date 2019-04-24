@@ -1,9 +1,0 @@
-Krótki opis integracji programu z bazą danych
-
-Do zapiu do bazy danych sql została użyta zewnętrzna biblioteka SQLite, można ją pobrać np. tu:
-https://bitbucket.org/xerial/sqlite-jdbc/downloads/
-
-Następne należy ją dołączyć do projektu w InteliJ
-
-Program w którym można sprawdzić wyniki zapisu do bazy danych to np. SQLiteStudio :
-https://sqlitestudio.pl/index.rvt
