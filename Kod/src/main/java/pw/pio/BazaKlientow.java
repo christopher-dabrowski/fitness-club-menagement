@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
+import java.sql.*;
 
 
 public class BazaKlientow {
@@ -34,6 +35,7 @@ public class BazaKlientow {
 
     public void dodajKlienta(Klient klient) {
         klienci.add(klient);
+        dodajDoBazySQL(klient);
     }
 
     public Set<Klient> getKlienci() {
@@ -43,7 +45,43 @@ public class BazaKlientow {
     public void usun(Klient klient) {
         klienci.remove(klient);
     }
-     
+     private void dodajDoBazySQL(Klient klient)
+    {
+        String url = "jdbc:sqlite:C://sqlite/db/Test1.db";
+        String sql = "CREATE TABLE IF NOT EXISTS bazaKlientow (\n"
+                + "	numerKarnetu integer PRIMARY KEY,\n"
+                + "	dataRozpoczeciaPakietu date NULL,\n"
+                + "	pakietUslug text NOT NULL,\n"
+                + "	imie text NOT NULL,\n"
+                + "	nazwisko text NOT NULL\n"
+                + ");";
+        String insert= "INSERT INTO bazaKlientow(numerKarnetu,dataRozpoczeciaPakietu, pakietUslug,imie, nazwisko) VALUES(?,?,?,?,?)";
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            // tworzy nowa tabele jezeli nie ma jej w bazie
+            stmt.execute(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+         
+        try (Connection conn = DriverManager.getConnection(url);
+             PreparedStatement pstmt = conn.prepareStatement(insert)){
+            pstmt.setInt(1, klient.getNumerKarnetu());
+            pstmt.setDate(2,new java.sql.Date(klient.getDataRozpoczeciaPakietu().getTime()));
+            pstmt.setString(3, klient.getPakietUslug().getNazwa());
+            pstmt.setString(4,klient.getImie() );
+            pstmt.setString(5, klient.getNazwisko());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+    }
     
 
 }
