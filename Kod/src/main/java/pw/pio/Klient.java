@@ -1,7 +1,10 @@
 package pw.pio;
 
+import lombok.ToString;
+
 import java.util.Date;
 
+@ToString
 public class Klient extends Osoba {
     private Date dataRozpoczeciaPakietu;
     private int numerKarnetu;

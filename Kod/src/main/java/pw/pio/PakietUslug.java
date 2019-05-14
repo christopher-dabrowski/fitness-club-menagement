@@ -1,4 +1,8 @@
 package pw.pio;
+
+import lombok.ToString;
+
+@ToString
 public class PakietUslug {
     private int czasTrwania;  // w miesiach
     private boolean darmoweZajecia;
