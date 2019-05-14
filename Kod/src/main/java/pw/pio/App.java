@@ -39,8 +39,10 @@ public class App extends Application
     public void start(Stage primaryStage) throws Exception {
 //        val button = new Button("Exit");
 //        button.setOnAction(event -> System.exit(0));
+        primaryStage.setResizable(false);
 
         Parent root = FXMLLoader.load(getClass().getResource("/App.fxml"));
+
 
         val scene = new Scene(root);
 

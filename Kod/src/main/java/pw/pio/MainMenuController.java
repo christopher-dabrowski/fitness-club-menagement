@@ -31,6 +31,7 @@ public class MainMenuController {
             val stage = new Stage();
             stage.setTitle("Nowy klient");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.show();
 
             ((Node)(event.getSource())).getScene().getWindow().hide();
@@ -48,6 +49,7 @@ public class MainMenuController {
             val stage = new Stage();
             stage.setTitle("Lista klientów");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.show();
 
             ((Node)(event.getSource())).getScene().getWindow().hide();
@@ -65,6 +67,7 @@ public class MainMenuController {
             val stage = new Stage();
             stage.setTitle("Nowy pracownik");
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.show();
 
             ((Node)(event.getSource())).getScene().getWindow().hide();
