@@ -25,6 +25,6 @@
         </yAxis>
       </LineChart>
       <Button onAction="#predictFirmStocks" layoutX="73.0" layoutY="350.0" mnemonicParsing="false" text="Prognozuj wartość akcji firmy" />
-      <Button layoutX="503.0" layoutY="350.0" mnemonicParsing="false" text="Powrót" />
+      <Button onAction="#returnToMainMenu" layoutX="503.0" layoutY="350.0" mnemonicParsing="false" text="Powrót" />
    </children>
 </AnchorPane>
