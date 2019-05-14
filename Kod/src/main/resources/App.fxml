@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.pio.MainMenuController">
    <top>
       <Label alignment="CENTER" prefHeight="130.0" prefWidth="536.0" text="Klub Fitnes" textAlignment="CENTER" BorderPane.alignment="CENTER">
@@ -46,7 +45,7 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Wykresy" />
+            <Button mnemonicParsing="false" onAction="#openChartsWindow" text="Wykresy" />
          </children>
          <opaqueInsets>
             <Insets />

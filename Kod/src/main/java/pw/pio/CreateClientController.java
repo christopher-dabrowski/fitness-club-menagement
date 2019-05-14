@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 import lombok.val;
 import lombok.var;
 
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.function.UnaryOperator;
 
 public class CreateClientController {
 //    @FXML
@@ -49,6 +51,17 @@ public class CreateClientController {
         var options = FXCollections.observableArrayList("Nie", "Tak");
         freeActivitiesChoiceBox.setItems(options);
         freeActivitiesChoiceBox.setValue(freeActivitiesChoiceBox.getItems().get(0));
+
+        UnaryOperator<TextFormatter.Change> positiveIntegerFilter = change -> {
+            String text = change.getText();
+            if (text.matches("[0-9]*")) {
+                return change;
+            }
+            return null;
+        };
+
+        val textFormatter = new TextFormatter(positiveIntegerFilter);
+        monthlyCostTextField.setTextFormatter(textFormatter);
     }
 
 //    @FXML
@@ -62,7 +75,7 @@ public class CreateClientController {
     /**
      * Check if fields have correct values
      *
-     * @param errorOut Localized error message describing firs invalid value.
+     * @param errorsOut Localized error message describing firs invalid value.
      * @return <c>True</c> if fields have correct values <c>False</c> otherwise.
      */
     private boolean isInputValid(ArrayList<String> errorsOut) {

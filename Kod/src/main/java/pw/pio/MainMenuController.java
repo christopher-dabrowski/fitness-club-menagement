@@ -78,4 +78,21 @@ public class MainMenuController {
 
     }
 
+    public void openChartsWindow(Event event) {
+        try {
+            val root = (Parent) FXMLLoader.load(getClass().getResource("/Charts.fxml"));
+
+            val stage = new Stage();
+            stage.setTitle("Wykresy");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e)
+        {
+            System.exit(1);
+        }
+    }
+
 }
