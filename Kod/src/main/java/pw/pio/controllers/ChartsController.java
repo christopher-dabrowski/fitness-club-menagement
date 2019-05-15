@@ -26,6 +26,9 @@ public class ChartsController implements Initializable {
 
     private int year = 2020;
 
+    private double lastValues = 0.;
+    private double lastPoint = 1;
+
     private final static Random random = new Random();
 
     public void predictFirmStocks() {
@@ -34,20 +37,17 @@ public class ChartsController implements Initializable {
             values.add(random.nextGaussian());
         }
 
+        values.set(0, lastValues);
+
         values = cumulativeSum(values);
+
+        lastValues = values.get(values.size()-1);
 
         val dataSeries1 = new XYChart.Series();
         dataSeries1.setName(Integer.toString(year++));
 
-//        dataSeries1.getData().add(new XYChart.Data( 1.2, 567.1));
-//        dataSeries1.getData().add(new XYChart.Data( 5, 612));
-//        dataSeries1.getData().add(new XYChart.Data(10, 800));
-//        dataSeries1.getData().add(new XYChart.Data(20, 780));
-//        dataSeries1.getData().add(new XYChart.Data(40, 810));
-//        dataSeries1.getData().add(new XYChart.Data(80, 850));
-
         for (int i = 0; i < values.size(); i++) {
-            dataSeries1.getData().add(new XYChart.Data(i+1, values.get(i)));
+            dataSeries1.getData().add(new XYChart.Data( lastPoint++, values.get(i)));
         }
 
         lineChart.getData().add(dataSeries1);
@@ -55,8 +55,8 @@ public class ChartsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lineChart.getXAxis().setLabel("Dni w roku");
-        lineChart.getYAxis().setLabel("Wartość akcji");
+        lineChart.getXAxis().setLabel("Czas");
+        lineChart.getYAxis().setLabel("Wartość akcji firmy");
     }
 
     private ArrayList<Double> cumulativeSum(List<Double> data) {
