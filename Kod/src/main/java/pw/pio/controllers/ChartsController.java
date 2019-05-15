@@ -55,8 +55,8 @@ public class ChartsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lineChart.getXAxis().setLabel("AAAA");
-
+        lineChart.getXAxis().setLabel("Dni w roku");
+        lineChart.getYAxis().setLabel("Wartość akcji");
     }
 
     private ArrayList<Double> cumulativeSum(List<Double> data) {
