@@ -6,10 +6,11 @@ import {EditUserDialogComponent} from "./edit-user-dialog/edit-user-dialog.compo
 import {FmMaterialModule} from "../fm-material.module";
 import {TileModule} from "../tiles/tile.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-dialog.component';
-import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
-import { EditServicePackageDialogComponent } from './edit-service-package-dialog/edit-service-package-dialog.component';
-import { AddServicePackageDialogComponent } from './add-service-package-dialog/add-service-package-dialog.component';
+import {AddEmployeeDialogComponent} from './add-employee-dialog/add-employee-dialog.component';
+import {EditEmployeeDialogComponent} from './edit-employee-dialog/edit-employee-dialog.component';
+import {EditServicePackageDialogComponent} from './edit-service-package-dialog/edit-service-package-dialog.component';
+import {AddServicePackageDialogComponent} from './add-service-package-dialog/add-service-package-dialog.component';
+import {ViewEmployeeDialogComponent} from './view-employee-dialog/view-employee-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +20,8 @@ import { AddServicePackageDialogComponent } from './add-service-package-dialog/a
 		AddEmployeeDialogComponent,
 		EditEmployeeDialogComponent,
 		EditServicePackageDialogComponent,
-		AddServicePackageDialogComponent
+		AddServicePackageDialogComponent,
+		ViewEmployeeDialogComponent
 	],
 	imports: [
 		CommonModule,

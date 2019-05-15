@@ -19,14 +19,13 @@ export class AddUserDialogComponent implements OnInit {
 		date: new FormControl(new Date()),
 		servicePackage: new FormControl('', Validators.required)
 	});
-	user: User;
+	user: User = new User();
 
 
 	constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>) {
 	}
 
 	ngOnInit() {
-		this.user = new User();
 	}
 
 	onSubmit() {

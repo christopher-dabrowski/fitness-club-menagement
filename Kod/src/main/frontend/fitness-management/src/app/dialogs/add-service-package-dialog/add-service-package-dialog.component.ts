@@ -44,6 +44,7 @@ export class AddServicePackageDialogComponent implements OnInit {
 			this.dialogRef.close(this.result);
 		}
 	}
+
 	onCancel() {
 		this.result.message = DialogCloseMessage.CANCEL;
 		this.dialogRef.close(this.result);

@@ -6,9 +6,9 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {OCCUPATIONS} from "../../mocks/mock-occupations";
 
 @Component({
-  selector: 'app-edit-employee-dialog',
-  templateUrl: './edit-employee-dialog.component.html',
-  styleUrls: ['./edit-employee-dialog.component.scss']
+	selector: 'app-edit-employee-dialog',
+	templateUrl: './edit-employee-dialog.component.html',
+	styleUrls: ['./edit-employee-dialog.component.scss']
 })
 export class EditEmployeeDialogComponent implements OnInit {
 
@@ -37,10 +37,11 @@ export class EditEmployeeDialogComponent implements OnInit {
 		])
 	});
 
-  constructor(public dialogRef: MatDialogRef<EditEmployeeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { }
+	constructor(public dialogRef: MatDialogRef<EditEmployeeDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
 	onSubmit() {
 		if (this.employeeForm.valid) {
@@ -53,11 +54,16 @@ export class EditEmployeeDialogComponent implements OnInit {
 
 			this.employee.firstName = this.employeeForm.controls['firstName'].value;
 			this.employee.surname = this.employeeForm.controls['surname'].value;
-			this.employee.id = Math.floor(Math.random() * 999999);
-			this.employee.occupation = OCCUPATIONS[OCCUPATIONS.length-1];
+			this.employee.id = this.employee.id;
+			this.employee.occupation = OCCUPATIONS[OCCUPATIONS.length - 1];
 			this.result.data = this.employee;
 			this.result.message = DialogCloseMessage.SAVE;
 			this.dialogRef.close(this.result);
 		}
+	}
+
+	onCancel() {
+		this.result.message = DialogCloseMessage.CANCEL;
+		this.dialogRef.close(this.result);
 	}
 }

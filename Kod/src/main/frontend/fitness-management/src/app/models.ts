@@ -20,13 +20,13 @@ export class Occupation {
 
 }
 
-export class Employee extends Person{
+export class Employee extends Person {
 	id: number;
 	occupation: Occupation;
 
 }
 
-export class User extends Person{
+export class User extends Person {
 	startDate: Date;
 	cardNumber: number;
 	servicePackage: servicePackage;
@@ -37,15 +37,15 @@ export enum Mode {
 	VIEW, EDIT, DELETE
 }
 
-export enum Confirmation{
+export enum Confirmation {
 	ASK, DONTASK
 }
 
-export enum DialogCloseMessage{
+export enum DialogCloseMessage {
 	SAVE, CANCEL
 }
 
-export class DialogCloseResult<T>{
+export class DialogCloseResult<T> {
 	data: T;
 	message: DialogCloseMessage;
 }

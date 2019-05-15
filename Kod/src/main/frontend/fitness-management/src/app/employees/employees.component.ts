@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Confirmation, DialogCloseMessage, Employee, Mode, Occupation} from "../models";
+import {Confirmation, DialogCloseMessage, Mode} from "../models";
 import {EMPLOYEES} from "../mocks/mock-employees";
 import {MatDialog, MatDialogRef} from "@angular/material";
 import {DeleteConfirmDialogComponent} from "../dialogs/delete-confirm-dialog/delete-confirm-dialog.component";
 import {AddEmployeeDialogComponent} from "../dialogs/add-employee-dialog/add-employee-dialog.component";
 import {OCCUPATIONS} from "../mocks/mock-occupations";
-import {EditUserDialogComponent} from "../dialogs/edit-user-dialog/edit-user-dialog.component";
 import {EditEmployeeDialogComponent} from "../dialogs/edit-employee-dialog/edit-employee-dialog.component";
+import {ViewEmployeeDialogComponent} from "../dialogs/view-employee-dialog/view-employee-dialog.component";
 
 @Component({
 	selector: 'app-employees',
@@ -40,7 +40,7 @@ export class EmployeesComponent implements OnInit {
 	}
 
 	deleteEmployee(index: number) {
-		if(this.ask) {
+		if (this.ask) {
 			let dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
 			dialogRef.afterClosed().subscribe(result => {
 				if (result.message == DialogCloseMessage.SAVE) {
@@ -48,14 +48,14 @@ export class EmployeesComponent implements OnInit {
 						this.ask = false;
 					}
 					this.EMPLOYEES.splice(index, 1);
-					this.OCCUPATIONS.splice(this.OCCUPATIONS.indexOf(this.EMPLOYEES[index].occupation)-1,1);
+					this.OCCUPATIONS.splice(this.OCCUPATIONS.indexOf(this.EMPLOYEES[index].occupation) - 1, 1);
 					if (this.EMPLOYEES.length == 0) {
 						this.currentMode = Mode.VIEW;
 					}
 				}
 			});
 		}
-		else{
+		else {
 			this.EMPLOYEES.splice(index, 1);
 			if (this.EMPLOYEES.length == 0) {
 				this.currentMode = Mode.VIEW;
@@ -63,10 +63,11 @@ export class EmployeesComponent implements OnInit {
 		}
 
 	}
+
 	addEmployee() {
 		let dialogRef = this.dialog.open(AddEmployeeDialogComponent);
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.EMPLOYEES.push(result.data);
 				}
@@ -74,11 +75,11 @@ export class EmployeesComponent implements OnInit {
 		});
 	}
 
-	editEmployee(i){
+	editEmployee(i) {
 		let dialogRef: MatDialogRef<EditEmployeeDialogComponent, any>;
 		dialogRef = this.dialog.open(EditEmployeeDialogComponent, {data: {index: i}});
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.EMPLOYEES[i] = result.data;
 				}
@@ -89,5 +90,9 @@ export class EmployeesComponent implements OnInit {
 
 	editsDone() {
 		this.currentMode = Mode.VIEW;
+	}
+
+	viewEmployee(i){
+		this.dialog.open(ViewEmployeeDialogComponent, {data: {index: i}});
 	}
 }

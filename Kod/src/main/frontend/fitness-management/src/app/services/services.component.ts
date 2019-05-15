@@ -26,6 +26,7 @@ export class ServicesComponent implements OnInit {
 
 	ngOnInit() {
 	}
+
 	editModeOn() {
 		this.currentMode = Mode.EDIT;
 	}
@@ -35,7 +36,7 @@ export class ServicesComponent implements OnInit {
 	}
 
 	deleteServicePackage(index: number) {
-		if(this.ask) {
+		if (this.ask) {
 			let dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
 			dialogRef.afterClosed().subscribe(result => {
 				if (result.message == DialogCloseMessage.SAVE) {
@@ -49,7 +50,7 @@ export class ServicesComponent implements OnInit {
 				}
 			});
 		}
-		else{
+		else {
 			this.SERVICE_PACKAGES.splice(index, 1);
 			if (this.SERVICE_PACKAGES.length == 0) {
 				this.currentMode = Mode.VIEW;
@@ -57,10 +58,11 @@ export class ServicesComponent implements OnInit {
 		}
 
 	}
+
 	addServicePackage() {
 		let dialogRef = this.dialog.open(AddServicePackageDialogComponent);
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.SERVICE_PACKAGES.push(result.data);
 				}
@@ -68,11 +70,11 @@ export class ServicesComponent implements OnInit {
 		});
 	}
 
-	editServicePackage(i){
+	editServicePackage(i) {
 		let dialogRef: MatDialogRef<EditServicePackageDialogComponent, any>;
 		dialogRef = this.dialog.open(EditServicePackageDialogComponent, {data: {index: i}});
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.SERVICE_PACKAGES[i] = result.data;
 				}

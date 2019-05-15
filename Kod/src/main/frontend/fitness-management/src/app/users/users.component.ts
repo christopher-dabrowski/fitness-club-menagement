@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {USERS} from "../mocks/mock-users";
-import {DialogCloseMessage, Mode} from "../models";
+import {Confirmation, DialogCloseMessage, Mode} from "../models";
 import {MatDialog, MatDialogRef} from "@angular/material";
 import {DeleteConfirmDialogComponent} from "../dialogs/delete-confirm-dialog/delete-confirm-dialog.component";
-import {Confirmation} from "../models";
 import {AddUserDialogComponent} from "../dialogs/add-user-dialog/add-user-dialog.component";
 import {EditUserDialogComponent} from "../dialogs/edit-user-dialog/edit-user-dialog.component";
 
@@ -38,7 +37,7 @@ export class UsersComponent implements OnInit {
 	}
 
 	deleteClient(index: number) {
-		if(this.ask) {
+		if (this.ask) {
 			let dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
 			dialogRef.afterClosed().subscribe(result => {
 				if (result.message == DialogCloseMessage.SAVE) {
@@ -52,7 +51,7 @@ export class UsersComponent implements OnInit {
 				}
 			});
 		}
-		else{
+		else {
 			this.USERS.splice(index, 1);
 			if (this.USERS.length == 0) {
 				this.currentMode = Mode.VIEW;
@@ -60,10 +59,11 @@ export class UsersComponent implements OnInit {
 		}
 
 	}
+
 	addClient() {
 		let dialogRef = this.dialog.open(AddUserDialogComponent);
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.USERS.push(result.data);
 				}
@@ -71,11 +71,11 @@ export class UsersComponent implements OnInit {
 		});
 	}
 
-	editClient(i){
+	editClient(i) {
 		let dialogRef: MatDialogRef<EditUserDialogComponent, any>;
 		dialogRef = this.dialog.open(EditUserDialogComponent, {data: {index: i}});
-		dialogRef.afterClosed().subscribe(result=>{
-			if(result != null) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result != null) {
 				if (result.message == DialogCloseMessage.SAVE) {
 					this.USERS[i] = result.data;
 				}

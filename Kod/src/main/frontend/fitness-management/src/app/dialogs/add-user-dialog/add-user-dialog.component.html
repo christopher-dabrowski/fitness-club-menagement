@@ -2,6 +2,7 @@
 	<h1 mat-dialog-title>Add User:</h1>
 	<form class="add-user-form" [formGroup]="userForm">
 		<mat-form-field hideRequiredMarker>
+			<mat-label>First Name</mat-label>
 			<input matInput placeholder="First Name"
 				   [formControlName]="'firstName'"
 				   autocomplete="off"

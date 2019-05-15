@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 const routes: Routes = [
 	{path: '', component: ManagementComponent},
 ];
+
 @NgModule({
 	declarations: [ManagementComponent],
 	imports: [

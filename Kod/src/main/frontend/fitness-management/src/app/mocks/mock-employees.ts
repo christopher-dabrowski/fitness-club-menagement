@@ -3,26 +3,26 @@ import {OCCUPATIONS} from "./mock-occupations";
 
 export const EMPLOYEES: Employee[] = [
 	{
-		firstName: 'Name6',
-		surname: 'Surname6',
+		firstName: 'First Name6',
+		surname: 'Last Name6',
 		id: 123,
 		occupation: OCCUPATIONS[0]
 	},
 	{
-		firstName: 'Name7',
-		surname: 'Surname7',
+		firstName: 'First Name7',
+		surname: 'Last Name7',
 		id: 124,
 		occupation: OCCUPATIONS[1]
 	},
 	{
-		firstName: 'Name8',
-		surname: 'Surname8',
+		firstName: 'First Name8',
+		surname: 'Last Name8',
 		id: 125,
 		occupation: OCCUPATIONS[2]
 	},
 	{
-		firstName: 'Name9',
-		surname: 'Surname9',
+		firstName: 'First Name9',
+		surname: 'Last Name9',
 		id: 126,
 		occupation: OCCUPATIONS[3]
 	},

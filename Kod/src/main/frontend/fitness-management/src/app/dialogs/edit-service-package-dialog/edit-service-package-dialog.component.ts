@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
-import {DialogCloseMessage, DialogCloseResult, servicePackage, User} from "../../models";
+import {DialogCloseMessage, DialogCloseResult, servicePackage} from "../../models";
 import {SERVICE_PACKAGES} from "../../mocks/mock-service-packages";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -12,7 +12,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class EditServicePackageDialogComponent implements OnInit {
 
 	servicePackage: servicePackage = SERVICE_PACKAGES[this.data['index']];
-	result = new DialogCloseResult<User>();
+	result = new DialogCloseResult<servicePackage>();
 
 	servicePackageForm = new FormGroup({
 		name: new FormControl(this.servicePackage.name, Validators.required),

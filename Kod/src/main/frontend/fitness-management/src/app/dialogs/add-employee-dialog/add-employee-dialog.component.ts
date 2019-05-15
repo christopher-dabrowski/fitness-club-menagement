@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {DialogCloseMessage, DialogCloseResult, Employee, Occupation, User} from "../../models";
+import {Component, OnInit} from '@angular/core';
+import {DialogCloseMessage, DialogCloseResult, Employee, Occupation} from "../../models";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material";
 import {OCCUPATIONS} from "../../mocks/mock-occupations";
 
 @Component({
-  selector: 'app-add-employee-dialog',
-  templateUrl: './add-employee-dialog.component.html',
-  styleUrls: ['./add-employee-dialog.component.scss']
+	selector: 'app-add-employee-dialog',
+	templateUrl: './add-employee-dialog.component.html',
+	styleUrls: ['./add-employee-dialog.component.scss']
 })
 export class AddEmployeeDialogComponent implements OnInit {
 	result = new DialogCloseResult<Employee>();
@@ -26,19 +26,17 @@ export class AddEmployeeDialogComponent implements OnInit {
 		])
 	});
 
-	employee: Employee;
+	employee: Employee = new Employee();
 
 	OCCUPATIONS = OCCUPATIONS;
 
-	occupation: Occupation;
+	occupation: Occupation = new Occupation();
 
 
 	constructor(public dialogRef: MatDialogRef<AddEmployeeDialogComponent>) {
 	}
 
 	ngOnInit() {
-		this.employee = new Employee();
-		this.occupation = new Occupation();
 	}
 
 	onSubmit() {
@@ -53,7 +51,7 @@ export class AddEmployeeDialogComponent implements OnInit {
 			this.employee.firstName = this.employeeForm.controls['firstName'].value;
 			this.employee.surname = this.employeeForm.controls['surname'].value;
 			this.employee.id = Math.floor(Math.random() * 999999);
-			this.employee.occupation = OCCUPATIONS[OCCUPATIONS.length-1];
+			this.employee.occupation = OCCUPATIONS[OCCUPATIONS.length - 1];
 			this.result.data = this.employee;
 			this.result.message = DialogCloseMessage.SAVE;
 			this.dialogRef.close(this.result);

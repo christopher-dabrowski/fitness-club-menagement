@@ -13,6 +13,7 @@ import {AddServicePackageDialogComponent} from "../dialogs/add-service-package-d
 const routes: Routes = [
 	{path: '', component: ServicesComponent},
 ];
+
 @NgModule({
 	declarations: [ServicesComponent],
 	entryComponents: [

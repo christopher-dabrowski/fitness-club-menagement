@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DialogsModule} from "../dialogs/dialogs.module";
 import {EditEmployeeDialogComponent} from "../dialogs/edit-employee-dialog/edit-employee-dialog.component";
 import {AddEmployeeDialogComponent} from "../dialogs/add-employee-dialog/add-employee-dialog.component";
+import {ViewEmployeeDialogComponent} from "../dialogs/view-employee-dialog/view-employee-dialog.component";
 
 const routes: Routes = [
 	{path: '', component: EmployeesComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
 	entryComponents: [
 		DeleteConfirmDialogComponent,
 		EditEmployeeDialogComponent,
-		AddEmployeeDialogComponent
+		AddEmployeeDialogComponent,
+		ViewEmployeeDialogComponent
 	],
 	imports: [
 		CommonModule,

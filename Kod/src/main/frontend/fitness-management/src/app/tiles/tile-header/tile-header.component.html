@@ -6,14 +6,14 @@
 				mat-icon-button
 				class="options-button"
 				(click)="optionsButtonClick()"
-        [matMenuTriggerFor]="menu">
+				[matMenuTriggerFor]="menu">
 			<mat-icon>more_vert</mat-icon>
 		</button>
 	</div>
 	<mat-divider></mat-divider>
 </div>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="add()">Time to add!</button>
-  <button mat-menu-item (click)="remove()">Time to remove!</button>
-  <button mat-menu-item (click)="edit()">Time to edit!</button>
+	<button mat-menu-item (click)="add()">Time to add!</button>
+	<button mat-menu-item (click)="remove()">Time to remove!</button>
+	<button mat-menu-item (click)="edit()">Time to edit!</button>
 </mat-menu>

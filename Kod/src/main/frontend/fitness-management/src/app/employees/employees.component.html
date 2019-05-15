@@ -3,8 +3,8 @@
 		<tile-content>
 			<div class="table">
 				<div class="table-header">
-					<div>Name</div>
-					<div>Surname</div>
+					<div>First Name</div>
+					<div>Last Name</div>
 					<div>ID #</div>
 					<div>Occupation</div>
 					<div>Salary</div>
@@ -30,6 +30,9 @@
 							<button mat-icon-button *ngIf="currentMode == Mode.DELETE" (click)="deleteEmployee(i)">
 								<mat-icon>close</mat-icon>
 							</button>
+							<button mat-icon-button *ngIf="currentMode == Mode.VIEW" (click)="viewEmployee(i)">
+								<mat-icon>info</mat-icon>
+							</button>
 						</div>
 					</div>
 					<mat-divider *ngIf="last == false"></mat-divider>
@@ -50,10 +53,10 @@
 </mat-menu>
 
 <!--<div *ngFor="let occ of OCCUPATIONS">-->
-	<!--Name: {{occ.name}}-->
-	<!--Since: {{occ.since | date: 'shortDate'}}-->
-	<!--To: {{occ.to | date: 'shortDate'}}-->
-	<!--Salary: {{occ.salary}}-->
-	<!--Hours:{{occ.hours}}-->
-	<!--<mat-divider></mat-divider>-->
+<!--Name: {{occ.name}}-->
+<!--Since: {{occ.since | date: 'shortDate'}}-->
+<!--To: {{occ.to | date: 'shortDate'}}-->
+<!--Salary: {{occ.salary}}-->
+<!--Hours:{{occ.hours}}-->
+<!--<mat-divider></mat-divider>-->
 <!--</div>-->

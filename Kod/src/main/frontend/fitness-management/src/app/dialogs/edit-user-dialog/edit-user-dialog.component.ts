@@ -23,8 +23,7 @@ export class EditUserDialogComponent implements OnInit {
 	});
 
 
-
-	constructor(public dialogRef: MatDialogRef<EditUserDialogComponent>, @Inject(MAT_DIALOG_DATA) public data:any) {
+	constructor(public dialogRef: MatDialogRef<EditUserDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
 	}
 
 	ngOnInit() {
