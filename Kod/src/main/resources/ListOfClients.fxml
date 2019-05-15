@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.pio.ListClientsControler">
+   <children>
+      <ListView layoutX="10.0" layoutY="63.0" prefHeight="320.0" prefWidth="454.0" fx:id="clientsListView" />
+      <Label layoutX="177.0" layoutY="6.0" text="Lista klientów">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Button disable="true" layoutX="500.0" layoutY="96.0" mnemonicParsing="false" text="Sczegóły" />
+      <Button disable="true" layoutX="500.0" layoutY="136.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Usuń" />
+      <Button disable="false" onAction="#returnToMainMenu" layoutX="496.0" layoutY="342.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Powrót" />
+   </children>
+</AnchorPane>

@@ -1,11 +1,10 @@
 package pw.pio;
 
-import sun.plugin.dom.exception.InvalidStateException;
-
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
+
 
 public class BazaKlientow {
     private static BazaKlientow instance;
@@ -28,7 +27,7 @@ public class BazaKlientow {
             return 0;
 
         if (max.get() == Integer.MAX_VALUE)
-            throw new InvalidStateException("Maksymalny indeks dla klienta zostal osiagniety");
+            throw new RuntimeException("Maksymalny indeks dla klienta zostal osiagniety");
 
         return max.get()+1;
     }
@@ -44,5 +43,7 @@ public class BazaKlientow {
     public void usun(Klient klient) {
         klienci.remove(klient);
     }
+     
+    
 
 }
