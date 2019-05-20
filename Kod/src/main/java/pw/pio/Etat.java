@@ -10,6 +10,13 @@ public class Etat {
     private int wymiarGodzin;
     private double wynagrodzenie;
 
+    public Etat (String nazwa, int wymiarGodzin, double wynagrodzenie, Date odKiedy, Date doKiedy){
+        this.nazwa = nazwa;
+        this.wymiarGodzin = wymiarGodzin;
+        this.wynagrodzenie = wynagrodzenie;
+        this.odKiedy = odKiedy;
+        this.doKiedy = doKiedy;
+    }
 
     public Date getDoKiedy() {
         return doKiedy;

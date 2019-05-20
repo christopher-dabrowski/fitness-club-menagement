@@ -1,16 +1,16 @@
 package pw.pio;
 
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pracownik extends Osoba {
     private int id;
-    private Set<Etat> etaty = new HashSet<>();
+    private List<Etat> etaty = new ArrayList<>();
 
-    public Pracownik(String imie, String nazwisko, int id) {
+    public Pracownik(String imie, String nazwisko) {
         super(imie, nazwisko);
-        this.id = id;
+        this.id = BazaPracownikow.getInstance().wygenerujUnikalnyNumerPracownika();
     }
 
     public double policzWynagrodzenie()
@@ -35,15 +35,11 @@ public class Pracownik extends Osoba {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Set<Etat> getEtaty() {
+    public List<Etat> listaEtatow() {
         return etaty;
     }
 
-    public void setEtaty(Set<Etat> etaty) {
+    public void setEtaty(List<Etat> etaty) {
         this.etaty = etaty;
     }
 }

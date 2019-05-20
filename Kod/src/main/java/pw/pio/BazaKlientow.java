@@ -1,15 +1,13 @@
 package pw.pio;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 
 public class BazaKlientow {
     private static BazaKlientow instance;
 
-    private Set<Klient> klienci = new HashSet<>();
+    private Map<Integer, Klient> klienci = new HashMap<>();
 
     private BazaKlientow() {}
 
@@ -20,9 +18,33 @@ public class BazaKlientow {
         return instance;
     }
 
-    public int wygenerujUnikalnyNumerKlienta() {
-        Optional<Integer> max = klienci.stream().map(k -> k.getNumerKarnetu()).max(Integer::compareTo);
+    public void dodajKlienta(Klient k){
 
+        int id = k.getNumerKarnetu();
+
+        if(!klienci.containsKey(id)) {
+            klienci.put(id, k);
+        }
+        else throw new RuntimeException("Klient znajduje sie juz w bazie.");
+    }
+
+    public void usunKlienta(int numerKarnetu){
+        if(klienci.containsKey(numerKarnetu)) {
+            klienci.remove(numerKarnetu);
+        }
+        else throw new RuntimeException("W bazie nie ma klienta o podanym numerze karnetu.");
+    }
+    public Klient wyszukajKlienta(int numerKarnetu){
+        return klienci.get(numerKarnetu);
+    }
+
+    public Map<Integer, Klient> listaKlientow(){
+
+        return klienci;
+    }
+
+    public int wygenerujUnikalnyNumerKlienta() {
+        Optional<Integer> max = klienci.keySet().stream().max(Integer::compareTo);
         if (!max.isPresent())
             return 0;
 
@@ -32,18 +54,6 @@ public class BazaKlientow {
         return max.get()+1;
     }
 
-    public void dodajKlienta(Klient klient) {
-        klienci.add(klient);
-    }
 
-    public Set<Klient> getKlienci() {
-        return klienci;
-    }
-
-    public void usun(Klient klient) {
-        klienci.remove(klient);
-    }
-     
-    
 
 }
