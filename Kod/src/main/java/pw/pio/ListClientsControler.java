@@ -23,7 +23,7 @@ public class ListClientsControler {
 
     @FXML
     public void initialize() {
-        val clients = BazaKlientow.getInstance().getKlienci();
+        val clients = BazaKlientow.getInstance().listaKlientow().values();
 
 //        clients.add(new Klient("Jan", "Kowalski", new Date(), null));
 
