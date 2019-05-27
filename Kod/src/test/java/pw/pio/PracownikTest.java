@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class PracownikTest {
 
     @Test
-    public void policzWynagrodzenie() {
+    public void policzWynagrodzeniePowinnoBycRowneSumieWynagrodzenZEtatow() {
         //Given
         Pracownik p = new Pracownik("Adam", "Twaróg");
         double[] wynagrodzenia = {2000, 4500, 321.53};
@@ -30,6 +30,6 @@ public class PracownikTest {
         //Then expected
         double suma = DoubleStream.of(wynagrodzenia).sum();
 
-        assertEquals(suma, p.policzWynagrodzenie(), 0);
+        assertEquals(suma, p.policzWynagrodzenie(), 0.0001);
     }
 }
