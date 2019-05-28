@@ -1,11 +1,18 @@
 package pw.pio;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 
 public class BazaKlientow {
     private static BazaKlientow instance;
+
+    public Map<Integer, Klient> getKlienci() {
+        return klienci;
+    }
+
+    public void setKlienci(Map<Integer, Klient> klienci) {
+        this.klienci = klienci;
+    }
 
     private Map<Integer, Klient> klienci = new HashMap<>();
 

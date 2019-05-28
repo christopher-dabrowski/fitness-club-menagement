@@ -23,4 +23,20 @@ public class BazaKlientowTest {
         //Cleanup
         bazaKlientow.listaKlientow().remove(klient);
     }
+
+    @Test
+    public void poUsunieciuKlientaKlientaNiePowinnoBycWBazie() {
+        //Given
+        BazaKlientow bazaKlientow = BazaKlientow.getInstance();
+        Klient klient = new Klient("Mariusz", "Wysocki", new Date(), null);
+        bazaKlientow.dodajKlienta(klient);
+
+        //When
+        if(bazaKlientow.listaKlientow().containsValue(klient)) {
+            bazaKlientow.usunKlienta(klient.getNumerKarnetu());
+            //Then
+            assertFalse(bazaKlientow.listaKlientow().containsValue(klient));
+        }else
+            fail("Wystąpił problem z dodaniem klienta do bazy");
+    }
 }
