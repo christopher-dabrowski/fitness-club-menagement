@@ -35,7 +35,7 @@ public class BazaKlientowTest {
         if(bazaKlientow.listaKlientow().containsValue(klient)) {
             bazaKlientow.usunKlienta(klient.getNumerKarnetu());
             //Then
-            assertFalse(bazaKlientow.listaKlientow().containsValue(klient));
+            assertFalse(bazaKlientow.listaKlientow().containsValue(klient.getNumerKarnetu()));
         }else
             fail("Wystąpił problem z dodaniem klienta do bazy");
     }
