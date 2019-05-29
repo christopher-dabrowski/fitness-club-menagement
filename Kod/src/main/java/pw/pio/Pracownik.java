@@ -31,6 +31,10 @@ public class Pracownik extends Osoba {
         etaty.add(etat);
     }
 
+    public void usunEtat(Etat etat) {
+        etaty.remove(etat);
+    }
+
     public int getId() {
         return id;
     }
