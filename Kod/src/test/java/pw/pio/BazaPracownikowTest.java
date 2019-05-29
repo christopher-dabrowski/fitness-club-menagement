@@ -1,6 +1,7 @@
 package pw.pio;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,5 +26,23 @@ public class BazaPracownikowTest {
         Pracownik p = new Pracownik("Jan", "Nowak");
         BazaPracownikow.getInstance().dodajPracownika(p);
         assertEquals(BazaPracownikow.getInstance().wyszukajPracownika(p.getId()),p);
+    }
+
+    @Test
+    public void poDodaniuNowegoPracownikaUnikalnyNumerPowinienSieZmienic() {
+        //Given
+        final int staryNumer = BazaPracownikow.getInstance().wygenerujUnikalnyNumerPracownika();
+
+        //When
+        Pracownik p = new Pracownik("Jan", "Nowak");
+        BazaPracownikow.getInstance().dodajPracownika(p);
+
+        //Then
+        final int nowyNumer = BazaPracownikow.getInstance().wygenerujUnikalnyNumerPracownika();
+
+        assertNotEquals(staryNumer, nowyNumer);
+
+        //Cleanup
+        BazaPracownikow.getInstance().listaPracownikow().remove(p.getId());
     }
 }

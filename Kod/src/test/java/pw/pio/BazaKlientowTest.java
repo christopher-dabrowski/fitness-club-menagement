@@ -39,4 +39,22 @@ public class BazaKlientowTest {
         }else
             fail("Wystąpił problem z dodaniem klienta do bazy");
     }
+
+    @Test
+    public void poDodaniuNowegoKlientaUnikalnyNumerPowinienSieZmienic() {
+        //Given
+        final int staryNumer = BazaKlientow.getInstance().wygenerujUnikalnyNumerKlienta();
+
+        //When
+        Klient klient = new Klient("Mariusz", "Wysocki", new Date(), null);
+        BazaKlientow.getInstance().dodajKlienta(klient);
+
+        //Then
+        final int nowyNumer = BazaKlientow.getInstance().wygenerujUnikalnyNumerKlienta();
+
+        assertNotEquals(staryNumer, nowyNumer);
+
+        //Cleanup
+        BazaKlientow.getInstance().listaKlientow().remove(klient.getNumerKarnetu());
+    }
 }
