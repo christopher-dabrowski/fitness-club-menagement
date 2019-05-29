@@ -23,6 +23,6 @@ public class BazaRezerwacjiTest {
         assertNotEquals(staryNumer, nowyNumer);
 
         //Cleanup
-        BazaRezerwacji.getInstance().listaRezerwacji().remove(rezerwacja);
+        BazaRezerwacji.getInstance().listaRezerwacji().remove(rezerwacja.getIdRezerwacji());
     }
 }

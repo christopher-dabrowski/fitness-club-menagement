@@ -21,7 +21,7 @@ public class BazaKlientowTest {
         assertTrue(bazaKlientow.listaKlientow().containsValue(klient));
 
         //Cleanup
-        bazaKlientow.listaKlientow().remove(klient);
+        bazaKlientow.listaKlientow().remove(klient.getNumerKarnetu());
     }
 
     @Test
